@@ -1,1 +1,1 @@
-Code of the personal website page: https://lseonghak.github.io/seonghak.github.io/
+Code of the personal website page: https://lseonghak.github.io/website/
