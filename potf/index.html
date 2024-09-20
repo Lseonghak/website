@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="">
+  <meta name="keywords" content="Talking head, Audio-driven, NeRF, WildTalk">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WildTalker</title>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="icon" href="./images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"> POTF: Prompt-based Object-centric Tensorial Field</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://lseonghak.github.io/website/">Seonghak Lee</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="https://jisoo-o.github.io/website/">Jisoo Park</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/cau-cvml/cvmlcau/junseokkwon?authuser=0">Junseok Kwon</a><sup>†</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Chung-Ang University, Seoul, Korea</span>
+
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="#teaser"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Lseonghak/POTF"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay loop controls playsinline height="100%">
+        <source src="./videos/wildtalker.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Prompt-based Object-centric Tensorial Field (POTF) integrates user-directed segmentation with efficient 
+        tensor decomposition to enhance 3D scene synthesis, allowing precise object reconstruction while optimizing 
+        computational resources and maintaining high fidelity in key areas.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent advancements reconstructing a 3D scene,
+            particularly Neural Radiance Field (NeRF), have significantly enhanced 
+            3D scene synthesis through continuous implicit functions
+            for volume rendering. However, real-world applications often
+            require the reconstruction of specific regions or objects within
+            a scene due to practical considerations such as computational
+            efficiency and data storage limitations. To address these needs,
+            we present Prompt-based Object-centric Tensorial Field (POTF),
+            a novel approach that integrates user-directed segmentation via
+            the Grounded Segment Anything Model (Grounded SAM) with
+            efficient rendering capabilities utilizing tensor decomposition
+            techniques. Our model allows precise segmentation based on
+            image and text inputs, enabling dynamic and interactive refinement 
+            of the target regions. The tensor decomposition significantly
+            improves reconstruction speed and quality by efficiently represent 
+            the 3D radiance fields. POTF prioritizes the rendering of
+            user-specified objects, optimizing computational resources while
+            maintaining high fidelity in critical areas. This method offers a
+            practical and adaptive solution for 3D scene synthesis, catering
+            to the specific needs of various real-world applications.
+          </p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    
+    <!-- Proposed Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Proposed Method</h2>
+        <div class="content has-text-justified">
+          <img src="./videos/wildtalker.png" alt="wildtalker">
+          <p>
+            <br>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Proposed Method. -->  
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+        
+</code></pre>
+  </div>
+</section>
+ 
+
+
+
+<footer class="footer">
+  <div class="container">
+      <div class="content has-text-centered">
+          <a class="icon-link" href="">
+              <i class="fas fa-file-pdf"></i>
+          </a>
+          <a class="icon-link" href="https://github.com/Lseonghak/POTF" class="external-link" disabled>
+              <i class="fab fa-github"></i>
+          </a>
+      </div>
+      <div class="columns is-centered">
+          <div class="column is-8">
+              <div class="content">
+                  <p style="text-align:center">
+                    This website is licensed under a <a rel="license"
+                    href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                    Commons Attribution-ShareAlike 4.0 International License</a>.
+                  </p>
+                  <p style="text-align:center">
+                    Website source code based on the <a
+                    href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project page.
+                  </p>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+
+</body>
+</html>
