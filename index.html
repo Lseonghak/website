@@ -1,236 +1,295 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Seonghak Lee</title>
+  <meta charset="utf-8">
   <meta name="author" content="Seonghak Lee">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <meta name="description" content="Seonghak Lee is an M.S. candidate in the CVML Lab at Chung-Ang University, working on 3D talking head synthesis in the wild.">
+  <title>Seonghak Lee</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #555555;
+      --link: #1772d0;
+      --link-hover: #f09228;
+      --divider: #ececec;
+      --btn-bg: #f3f3f3;
+      --btn-bg-hover: #e7e7e7;
+      --btn-border: #dcdcdc;
+      --max-width: 820px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0 20px;
+      background: #ffffff;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 48px 0 64px;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--link-hover); }
+
+    /* ---------- Bio / header ---------- */
+    .bio {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .bio-text { flex: 1 1 380px; }
+    .bio-text h1 {
+      font-weight: 700;
+      font-size: 2rem;
+      margin: 0 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .bio-text p { margin: 0 0 14px; }
+    .photo {
+      flex: 0 0 180px;
+      width: 180px;
+    }
+    .photo img {
+      width: 100%;
+      border-radius: 6px;
+      display: block;
+      background: #f0f0f0;
+    }
+    .links {
+      margin-top: 6px;
+      font-size: 1rem;
+    }
+    .links a { white-space: nowrap; }
+
+    /* ---------- Section headers ---------- */
+    h2.section {
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin: 48px 0 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--text);
+    }
+    .note {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin: -8px 0 18px;
+    }
+
+    /* ---------- Publications ---------- */
+    .paper {
+      display: flex;
+      gap: 24px;
+      padding: 22px 0;
+      border-top: 1px solid var(--divider);
+      align-items: center;
+    }
+    .paper:first-of-type { border-top: none; }
+
+    .paper-thumb {
+      flex: 0 0 260px;
+      width: 260px;
+    }
+    .paper-thumb img {
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+    }
+    /* hover-to-play video thumbnails */
+    .video-thumb { position: relative; }
+    .video-thumb video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.25s ease-in-out;
+    }
+    .paper:hover .video-thumb video { opacity: 1; }
+
+    .paper-body { flex: 1 1 auto; }
+    .paper-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin: 0 0 4px;
+      line-height: 1.4;
+    }
+    .paper-authors { margin: 0 0 2px; font-size: 0.95rem; }
+    .paper-authors .me { font-weight: 700; }
+    .paper-venue {
+      margin: 0 0 8px;
+      font-size: 0.92rem;
+      color: #333;
+      font-style: italic;
+    }
+    .paper-venue .highlight { color: var(--link-hover); font-style: normal; font-weight: 700; }
+    .paper-venue .review { color: #d12d2d; font-style: normal; font-weight: 700; }
+
+    /* ---------- Buttons ---------- */
+    .btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .btn {
+      display: inline-block;
+      padding: 3px 14px;
+      font-size: 0.85rem;
+      border: 1px solid var(--btn-border);
+      border-radius: 999px;
+      background: var(--btn-bg);
+      color: var(--text);
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .btn:hover {
+      background: var(--btn-bg-hover);
+      border-color: #c8c8c8;
+      color: var(--text);
+    }
+
+    /* ---------- Simple lists (awards) ---------- */
+    .simple-list { margin: 0; padding-left: 18px; }
+    .simple-list li { margin-bottom: 10px; }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: 56px;
+      padding-top: 16px;
+      border-top: 1px solid var(--divider);
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 600px) {
+      .bio { flex-direction: column-reverse; align-items: center; text-align: left; }
+      .photo { flex-basis: 160px; width: 160px; }
+      .paper { flex-direction: column; gap: 12px; }
+      .paper-thumb { flex-basis: auto; width: 100%; }
+    }
+  </style>
 </head>
-
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr style="padding:0px">
-                <td style="padding:2.5%;width:63%;vertical-align:middle">
-                  <p style="text-align:center">
-                    <name>Seonghak Lee</name>
-                  </p>
-                  <p>
-                    I am a second-year M.S. candidate at <a href="https://www.cau.ac.kr/index.do">Chung-Ang University</a>, supervised by Prof. <a href="https://sites.google.com/view/cau-cvml/cvmlcau/junseokkwon?authuser=0">Junseok Kwon</a>. 
-                    Starting in December 2024, I am also working as a research intern at <a href="https://www.polygom.studio/">POLYGOM</a>.
-                    <br>
-                    <br>
-                    My research focuses on 3D Talking Head Synthesis, with a particular emphasis on solving challenges in uncontrolled, 'wild' scenarios. These include issues like extreme head poses, lighting variations, and occlusions, where traditional models struggle to maintain realism and natural expression.
-                    By applying advanced techniques in computer vision and deep learning, I aim to create robust 3D talking head models that perform reliably in real-world conditions. My broader interests also include 3D reconstruction and scene representation, with the goal of enhancing the realism and interactivity of digital human models for applications like virtual avatars and entertainment.
-                  </p>         
-                  <p style="text-align:center">
-                    <a href="mailto:tjdgkr6220@cau.ac.kr">Email</a> &nbsp/&nbsp <a href="https://github.com/Lseonghak">Github</a> &nbsp/&nbsp <a href="https://scholar.google.com/citations?hl=ko&user=VnQkrOIAAAAJ">Google Scholar</a>  &nbsp/&nbsp <a href="https://www.linkedin.com/in/seonghak-lee-585214268/">LinkedIn</a>  &nbsp/&nbsp <a href="images/CV.pdf">CV</a>  
-                  </p>
-                </td>
-                <td style="padding:2.5%;width:40%;max-width:40%">
-                  <a href="images/Seonghak.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/Seonghak.jpg" class="hoverZoomLink"></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+  <div class="container">
 
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>Research</heading>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+    <!-- ===================== BIO ===================== -->
+    <section class="bio">
+      <div class="bio-text">
+        <h1>Seonghak Lee</h1>
+        <p>
+          I am a second-year M.S. candidate at
+          <a href="https://www.cau.ac.kr/index.do" target="_blank">Chung-Ang University</a>,
+          supervised by Prof.
+          <a href="https://sites.google.com/view/cau-cvml/cvmlcau/junseokkwon?authuser=0" target="_blank">Junseok Kwon</a>.
+          Starting in December 2024, I am also working as a research intern at
+          <a href="https://www.polygom.studio/" target="_blank">POLYGOM</a>.
+        </p>
+        <p>
+          My research focuses on <strong>3D Talking Head Synthesis</strong>, with a particular emphasis on solving challenges in uncontrolled, &lsquo;wild&rsquo; scenarios.
+          These include issues like extreme head poses, lighting variations, and occlusions, where traditional models struggle to maintain realism and natural expression.
+          By applying advanced techniques in computer vision and deep learning, I aim to create robust 3D talking head models that perform reliably in real-world conditions.
+          My broader interests also include 3D reconstruction and scene representation, with the goal of enhancing the realism and interactivity of digital human models for applications like virtual avatars and entertainment.
+        </p>
+        <p class="links">
+          <a href="mailto:tjdgkr6220@cau.ac.kr">Email</a> /
+          <a href="https://github.com/Lseonghak" target="_blank">GitHub</a> /
+          <a href="https://scholar.google.com/citations?hl=ko&user=VnQkrOIAAAAJ" target="_blank">Google Scholar</a> /
+          <a href="https://www.linkedin.com/in/seonghak-lee-585214268/" target="_blank">LinkedIn</a> /
+          <a href="images/CV.pdf" target="_blank">CV</a>
+        </p>
+      </div>
+      <div class="photo">
+        <img src="images/Seonghak.jpg" alt="Seonghak Lee">
+      </div>
+    </section>
 
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr onmouseout="CVWAE_stop()" onmouseover="CVWAE_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/CVWAE/CVWAE.png" alt="CVWAE" width="320" height="180">
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                    <papertitle>Audio-Visual Wasserstein Autoencoders for Speech Enhancement</papertitle>
-                  <br>
-                  <a href="https://jisoo-o.github.io/website/">Jisoo Park</a>*,
-                  <strong>Seonghak Lee</strong>*,
-                  <a href="https://sites.google.com/view/cau-cvml/cvmlcau/junseokkwon?authuser=0">Junseok Kwon</a><sup>†</sup>
-                  <br>
-                  <a style="color:red;"><em>Under Review, 2024</em></a>
-                  <p>
-                  </p>
-                </td>
-              </tr>
-              
-              <tr onmouseout="ESM_stop()" onmouseover="ESM_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/ESM/ESM.png" alt="ESM" width="320" height="180">
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                    <papertitle>Enhancing Sidewalk Maintenance through Accurate Joint Deflection Measurement</papertitle>
-                  <br>
-                  <a href="https://jisoo-o.github.io/website/">Jisoo Park</a>*,
-                  <strong>Seonghak Lee</strong>*,
-                  Paul Hyunbin Cho*,
-                  Zongkai Xia<sup>†</sup>,
-                  Loucif Hebbache<sup>†</sup>
-                  <br>
-                  Collaboration : IRIS R&D Group Inc.
-                  <br>
-                  <em>ICCE, 2025</em>
-                  <br>
-                  <a href="./">Project</a> / <a href="./https://ieeexplore.ieee.org/document/10930116">arXiv</a> / <a href="./">Code</a>
-                  <p>
-                    IEEE 43rd International Conference on Consumer Electronics (<strong>ICCE</strong>), Las Vegas, USA, 2025
-                  </p>
-                </td>
-              </tr>
+    <!-- ===================== PUBLICATIONS ===================== -->
+    <h2 class="section">Research</h2>
+    <p class="note">* denotes equal contribution. &nbsp;&dagger; denotes corresponding author.</p>
 
+    <!-- CVWAE — Under Review -->
+    <div class="paper">
+      <div class="paper-thumb"><img src="images/CVWAE/CVWAE.png" alt="CVWAE teaser"></div>
+      <div class="paper-body">
+        <p class="paper-title">Audio-Visual Wasserstein Autoencoders for Speech Enhancement</p>
+        <p class="paper-authors"><a href="https://jisoo-o.github.io/website/" target="_blank">Jisoo Park</a>*, <span class="me">Seonghak Lee</span>*, Junseok Kwon&dagger;</p>
+        <p class="paper-venue"><span class="review">Under Review</span>, 2024</p>
+      </div>
+    </div>
 
+    <!-- ESM — ICCE 2025 -->
+    <div class="paper">
+      <div class="paper-thumb"><img src="images/ESM/ESM.png" alt="ESM teaser"></div>
+      <div class="paper-body">
+        <p class="paper-title">Enhancing Sidewalk Maintenance through Accurate Joint Deflection Measurement</p>
+        <p class="paper-authors"><a href="https://jisoo-o.github.io/website/" target="_blank">Jisoo Park</a>*, <span class="me">Seonghak Lee</span>*, Paul Hyunbin Cho*, Zongkai Xia&dagger;, Loucif Hebbache&dagger;</p>
+        <p class="paper-venue">IEEE 43rd International Conference on Consumer Electronics (<span class="highlight">ICCE</span>), Las Vegas, USA, 2025 &mdash; in collaboration with IRIS R&amp;D Group Inc.</p>
+        <div class="btn-row">
+          <a class="btn" href="https://ieeexplore.ieee.org/document/10930116" target="_blank">PDF</a>
+        </div>
+      </div>
+    </div>
 
-              <tr onmouseout="wildtalker_stop()" onmouseover="wildtalker_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="two" id="wildtalker_image" style="display: inline;">
-                    <video width="320" height="180" muted autoplay loop>
-                      <source src="images/wildtalker/wildtalker.mp4" alt="wildtalker mp4" width="320" height="180" type="video/mp4">
-                    </video>
-                  </div>
-                  <img src="images/wildtalker/wildtalker.png" alt="wildtalker" width="320" height="180">
-                  <script type="text/javascript">
-                    function wildtalker_start() {
-                      document.getElementById('wildtalker_image').style.opacity = "1";
-                    }
-                    function wildtalker_stop() {
-                      document.getElementById('wildtalker_image').style.opacity = "0";
-                    }
-                    wildtalker_stop();
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="./wildtalker">
-                    <papertitle>WildTalker: Talking Portrait Synthesis in the Wild</papertitle>
-                  </a>
-                  <br>
-                  <strong>Seonghak Lee</strong>*,
-                  <a href="https://jisoo-o.github.io/website/">Jisoo Park</a>*,
-                  <a href="https://sites.google.com/view/cau-cvml/cvmlcau/junseokkwon?authuser=0">Junseok Kwon</a><sup>†</sup>
-                  <br>
-                  <em>ECCV</em>, 2024 workshop 
-                  <br>
-                  <a href="./wildtalker">Project</a> / <a href="https://openreview.net/pdf?id=296BblZfXx">arXiv</a> / <a href="https://github.com/Lseonghak/WildTalker">Code</a>
-                  <p>
-                    The 18th European Conference on Computer Vision Workshop (<strong>ECCV workshop</strong>), 3D Modeling, Reconstruction, and Generation in the Wild, Milano, Italy, 2024
-                  </p>
-                </td>
-              </tr>
+    <!-- WildTalker — ECCV 2024 Workshop -->
+    <div class="paper">
+      <div class="paper-thumb video-thumb">
+        <img src="images/wildtalker/wildtalker.png" alt="WildTalker teaser">
+        <video muted autoplay loop playsinline>
+          <source src="images/wildtalker/wildtalker.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="paper-body">
+        <p class="paper-title"><a href="./wildtalker">WildTalker: Talking Portrait Synthesis in the Wild</a></p>
+        <p class="paper-authors"><span class="me">Seonghak Lee</span>*, <a href="https://jisoo-o.github.io/website/" target="_blank">Jisoo Park</a>*, Junseok Kwon&dagger;</p>
+        <p class="paper-venue">The 18th European Conference on Computer Vision Workshop (<span class="highlight">ECCV Workshop</span>) &mdash; 3D Modeling, Reconstruction, and Generation in the Wild, Milano, Italy, 2024</p>
+        <div class="btn-row">
+          <a class="btn" href="./wildtalker" target="_blank">Project Page</a>
+          <a class="btn" href="https://openreview.net/pdf?id=296BblZfXx" target="_blank">PDF</a>
+          <a class="btn" href="https://github.com/Lseonghak/WildTalker" target="_blank">Code</a>
+        </div>
+      </div>
+    </div>
 
-              <tr onmouseout="potf_stop()" onmouseover="potf_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="two" id="potf_image" style="display: inline;">
-                    <video width="320" height="180" muted autoplay loop>
-                      <source src="images/potf/potf.mp4" alt="potf mp4" width="320" height="180" type="video/mp4">
-                    </video>
-                  </div>
-                  <img src="images/potf/potf.png" alt="potf" width="320" height="180">
-                  <script type="text/javascript">
-                    function potf_start() {
-                      document.getElementById('potf_image').style.opacity = "1";
-                    }
-                    function potf_stop() {
-                      document.getElementById('potf_image').style.opacity = "0";
-                    }
-                    potf_stop();
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="./potf">
-                    <papertitle>POTF: Prompt-based Object-centric Tensorial Field</papertitle>
-                  </a>
-                  <br>
-                  <strong>Seonghak Lee</strong>*,
-                  <a href="https://jisoo-o.github.io/website/">Jisoo Park</a>*,
-                  <a href="https://sites.google.com/view/cau-cvml/cvmlcau/junseokkwon?authuser=0">Junseok Kwon</a><sup>†</sup>
-                  <br>
-                  <em>ICTC</em>, 2024 <a style="color:red;">(Oral)</a>
-                  <br>
-                  <a href="./potf">Project</a> / <a href="">arXiv</a> / <a href="https://github.com/Lseonghak/POTF">Code</a>
-                  <p>
-                    International Conference on ICT Convergence (<strong>ICTC</strong>), Jeju, Korea, 2024 
-                  </p>
-                </td>
-              </tr>
-<!--           
-              <tr onmouseout="survey_stop()" onmouseover="survey_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/survey/survey.png" alt="survey" width="320" height="180">
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                    <papertitle>A Comprehensive Survey of Neural Radiance Field</papertitle>
-                  <br>
-                  <strong>Seonghak Lee</strong>,
-                  <a href="https://sites.google.com/view/cau-cvml/cvmlcau/junseokkwon?authuser=0">Junseok Kwon</a><sup>†</sup>
-                  <br>
-                  <em>IEIE</em>, 2023
-                  <p>
-                    The Institute of Electronics and Information Engineers (<strong>IEIE</strong>), Jeju, Korea, 2023
-                  </p>
-                </td>
-              </tr>
+    <!-- POTF — ICTC 2024 (Oral) -->
+    <div class="paper">
+      <div class="paper-thumb"><img src="images/potf/potf.png" alt="POTF teaser"></div>
+      <div class="paper-body">
+        <p class="paper-title"><a href="./potf">POTF: Prompt-based Object-centric Tensorial Field</a></p>
+        <p class="paper-authors"><span class="me">Seonghak Lee</span>*, <a href="https://jisoo-o.github.io/website/" target="_blank">Jisoo Park</a>*, Junseok Kwon&dagger;</p>
+        <p class="paper-venue">International Conference on ICT Convergence (<span class="highlight">ICTC</span>) &mdash; <span class="highlight">Oral</span>, Jeju, Korea, 2024</p>
+        <div class="btn-row">
+          <a class="btn" href="./potf" target="_blank">Project Page</a>
+          <a class="btn" href="https://github.com/Lseonghak/POTF" target="_blank">Code</a>
+        </div>
+      </div>
+    </div>
 
-              <tr onmouseout="CPR_stop()" onmouseover="CPR_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/CPR/CPR.png" alt="CPR" width="320" height="180">
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                    <papertitle>Real-time CPR training application Through Arduino Gyro sensor and FSR sensor</papertitle>
-                  <br>
-                  <strong>Seonghak Lee</strong>,
-                  <a href="https://vim-lab-cau.github.io/VIM/members.html">Kwang Nam Choi</a><sup>†</sup>
-                  <br>
-                  <em>KMMS</em>, 2022
-                  <p>
-                    The Korea Multimedia Society (<strong>KMMS</strong>), Pusan, Korea, 2022
-                  </p>
-                </td>
-              </tr> -->
-            </tbody>
-          </table>
+    <!-- ===================== AWARDS ===================== -->
+    <h2 class="section">Awards</h2>
+    <ul class="simple-list">
+      <li><strong>2nd Place</strong> in 2023 Big Data Analytics Idea Contest by <a href="https://www.sundosoft.co.kr/main/main.html" target="_blank">Sundo Soft</a></li>
+      <li><strong>3rd Place</strong> in 2023 Big Data Analytics Idea Contest by <a href="https://www.hd-xitesolution.com/?locale=ko" target="_blank">HD Hyundai Site Solution</a></li>
+    </ul>
 
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>Awards</heading>
-                  <p><strong>2nd Place</strong> in 2023 Big Data Analytics Idea Contest by <a href ='https://www.sundosoft.co.kr/main/main.html'>Sundo Soft</a></p>
-                  <p><strong>3rd Place</strong> in 2023 Big Data Analytics Idea Contest by <a href='https://www.hd-xitesolution.com/?locale=ko'>HD Hyundai Site Solution</a></p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tbody>
-      <tr>
-        <td style="padding:0px">
-          <br>
-          <p style="text-align:right;font-size:small;">
-            Last updated: Sep. 2024
-            <br>
-            Web page design credit to <a href="https://jonbarron.info" style="font-size:14px">Jon Barron</a>
-          </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+      Last updated: Sep. 2024 &middot; Web page design credit to
+      <a href="https://jonbarron.info" target="_blank">Jon Barron</a>.
+    </footer>
+
+  </div>
 </body>
 </html>
