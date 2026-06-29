@@ -167,7 +167,14 @@
         <div class="content has-text-justified">
           <img src="./assets/potf.png" alt="potf">
           <p>
-            <br>
+            The user provides a text prompt specifying the object to be rendered from the scene. 
+            The trained Grounded-SAM model utilizes this prompt and input images to detect and 
+            define the regions of this specified object within the scene. 
+            We model the scene with only the specified region as a tensorial radiance field, 
+            leveraging tensor decomposition to effectively represent the scene. 
+            Finally, volume rendering is performed on the tensorial radiance field to produce high-quality 
+            3D representations of the objects specified by the user, achieving efficient and precise rendering 
+            tailored to user demand.
           </p>
         </div>
       </div>
