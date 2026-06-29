@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="URHead presents a unified UV-Space representation for joint mesh and 3D Gaussian Splatting optimization in head avatars.">
+  <meta name="keywords" content="URHead, UV-Space, Mesh-3DGS, Head Avatars, Gaussian Splatting, FLAME">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>URHead: A Unified UV-Space Representation for Joint Mesh-3DGS Optimization in Head Avatars</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./css/index.css">
+
+  <style>
+    /* Bright blue -> green gradient for the "URHead" name (mesh=blue, gaussian=green). */
+    .urhead-gradient {
+      background: linear-gradient(90deg, #0c4881 0%, #196d67 50%, #26924c 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      font-weight: 800;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://github.com/Lseonghak/URHead">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <!-- Add more research links here later, e.g.:
+          <a class="navbar-item" href="PROJECT_URL">
+            Project Title
+          </a>
+          -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"><span class="urhead-gradient">URHead</span>: A Unified UV-Space Representation for Joint Mesh&ndash;3DGS Optimization in Head Avatars</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://lseonghak.github.io/website/">Seonghak Lee</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="https://sites.google.com/view/cau-cvml/cvmlcau/junheecho?authuser=0">Junhee Cho</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="https://jisoo-o.github.io/website/">Jisoo Park</a><sup>1</sup>,</span>
+            <span class="author-block">Min-Gyu Park<sup>2,3</sup>,</span>
+            <span class="author-block"><a href="https://bluedream1121.github.io/">Jongmin Lee</a><sup>1</sup>,</span>
+            <span class="author-block">Ju Hong Yoon<sup>2,3</sup>,</span>
+            <span class="author-block"><a href="https://sites.google.com/view/cau-cvml/cvmlcau/junseokkwon?authuser=0">Junseok Kwon</a><sup>&dagger;,1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Chung-Ang University,</span>
+            <span class="author-block"><sup>2</sup>Korea Electronics Technology Institute (KETI),</span>
+            <span class="author-block"><sup>3</sup>polygom</span>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>&dagger;</sup>Corresponding author</span>
+          </div>
+          <div class="is-size-5 publication-authors" style="margin-top: 0.5rem;">
+            <span class="author-block"><b>ECCV 2026</b></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./https://lseonghak.github.io/URHead_project_page"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Lseonghak/URHead"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="./https://lseonghak.github.io/URHead_project_page"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img id="teaser" src="./assets/teaser.png"
+           alt="Teaser image showing the key insight behind URHead."/>
+      <h2 class="subtitle has-text-centered">
+        <strong>Key insight behind URHead</strong>.
+        Unlike prior approaches that bind Gaussians to mesh surfaces in 3D space (bottom),
+        URHead introduces a unified UV-space representation that jointly parameterizes mesh
+        and 3DGS through shared attribute maps (top).
+        Through joint optimization over the shared UV, both representations mutually refine each other,
+        preserving animation controllability while bridging structural coherence and visual fidelity.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present URHead, a unified representation for high-fidelity and animatable head avatars
+            that fundamentally redefines mesh-Gaussian integration.
+            While mesh-based methods offer precise geometric control but lack photorealistic detail,
+            and Gaussian-based approaches achieve photorealism but suffer from poor structural consistency,
+            existing hybrid solutions fail to fully leverage their complementary strengths.
+            Our key contribution is a UV-space unification where both representations share a common UV parameterization.
+            Through joint optimization with adaptive gaussian sampling,
+            our method automatically learns to disentangle and allocate appropriate roles to each component.
+            URHead maintains full parametric controllability while preserving subject-specific details,
+            outperforms existing state-of-the-art methods in reconstruction quality and animation consistency.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            URHead reformulates both the parametric mesh and 3D Gaussians as functions defined over a
+            <b>shared UV domain</b>, enabling true parameter-level integration rather than mere spatial binding.
+            Built on the FLAME parametric facial model, our unified representation
+            <span class="dnerf">&Theta;<sub>u</sub> = {C, N, D, O, S}</span> encodes all facial attributes as dense UV maps:
+          </p>
+          <ul>
+            <li><b>Shared attribute maps</b> (C, N, D) &mdash; spherical-harmonics color, surface normal, and
+              displacement &mdash; jointly utilized by both the mesh and Gaussian renderers.</li>
+            <li><b>Gaussian-specific maps</b> (O, S) &mdash; opacity and anisotropic scale.
+              Gaussian rotation is derived from the shared normal map N via quaternion conversion.</li>
+          </ul>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./assets/main_figure.png"
+               alt="Overall pipeline of URHead."/>
+          <p class="is-size-6 has-text-justified">
+            <b>Overall pipeline of URHead.</b> Given monocular video frames and FLAME parameters, we construct a
+            position map via linear blend skinning. The unified UV-space representation
+            &Theta;<sub>u</sub> = {C, N, D, O, S} feeds two renderers &mdash; a differentiable mesh rasterizer and an
+            occlusion-aware 3DGS rasterizer &mdash; that share the UV-space parameters and are jointly optimized
+            through coupled gradient flows. The final image is composited via alpha blending, and the adaptive
+            Gaussian sampling module allocates new points based on reconstruction error.
+          </p>
+        </div>
+
+        <h3 class="title is-4">Joint UV-Space Optimization</h3>
+        <div class="content has-text-justified">
+          <p>
+            A differentiable mesh rasterizer and an occlusion-aware 3DGS rasterizer share the UV-space
+            attribute maps, so gradients from both rendering paths jointly update the same parameters during
+            backpropagation. This cross-renderer gradient coupling lets the Gaussian flow directly refine mesh
+            geometry through the shared normal map, enabling coordinated refinement of structure and appearance.
+            The final image is composited from the Gaussian and mesh layers via alpha blending,
+            <span class="dnerf">I = I<sub>gs</sub> + T &middot; I<sub>mesh</sub></span>.
+          </p>
+        </div>
+
+        <h3 class="title is-4">Error-Driven Adaptive Gaussian Sampling</h3>
+        <div class="content has-text-justified">
+          <p>
+            Because the UV domain is surface-aligned and consistent across renderers, photometric reconstruction
+            errors can be projected back onto the surface and accumulated over the video sequence. New Gaussians are
+            allocated in proportion to the accumulated error, densifying under-represented regions
+            (wrinkles, pores, subtle facial structures) while suppressing redundancy elsewhere.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./assets/adaptive_sampling.png"
+               alt="Adaptive Gaussian allocation through error-driven sampling."/>
+          <p class="is-size-6 has-text-justified">
+            <b>Adaptive Gaussian allocation through error-driven sampling.</b> We project photometric reconstruction
+            errors from image space to UV space, producing an error map (brighter colors indicate larger errors).
+            Based on this distribution, we sample new Gaussians, shown as a 3D point cloud (right).
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Method. -->
+
+    <!-- Quantitative Comparisons. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Quantitative Comparisons</h2>
+        <div class="content has-text-justified">
+          <p>
+            Averaged results on the <b>INSTA</b> dataset (5 subjects). URHead consistently outperforms six
+            state-of-the-art monocular Gaussian-based head avatar methods across pixel-level (PSNR),
+            structural (SSIM), and perceptual (LPIPS) metrics &mdash; with a particularly large margin on LPIPS.
+          </p>
+          <div class="table-container">
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth has-text-centered">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>PSNR &uarr;</th>
+                  <th>SSIM &uarr;</th>
+                  <th>LPIPS &darr;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>SplattingAvatar</td><td>31.57</td><td>0.9471</td><td>0.0373</td></tr>
+                <tr><td>GaussianAvatars</td><td>33.39</td><td>0.9619</td><td>0.0326</td></tr>
+                <tr><td>FlashAvatar</td><td>32.41</td><td>0.9502</td><td>0.0602</td></tr>
+                <tr><td>GaussianBlendShape</td><td>34.05</td><td>0.9674</td><td>0.0326</td></tr>
+                <tr><td>FateAvatar</td><td>32.73</td><td>0.9556</td><td>0.0304</td></tr>
+                <tr><td>RGBAvatar</td><td>34.14</td><td>0.9633</td><td>0.0251</td></tr>
+                <tr><td><b>URHead (Ours)</b></td><td><b>35.18</b></td><td><b>0.9675</b></td><td><b>0.0149</b></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            URHead also achieves the most stable animation, with the lowest frame-to-frame LPIPS on INSTA
+            (mean 0.0153 vs. 0.0267 for the next best, RGBAvatar), indicating temporally consistent renderings
+            without flickering under animation-driven deformation.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Quantitative Comparisons. -->
+
+    <!-- Ablation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Ablation Study</h2>
+        <div class="content has-text-justified">
+          <p>
+            Component analysis on the INSTA dataset. Removing the Gaussian branch causes the most significant
+            degradation in perceptual quality, confirming that the fixed-topology mesh alone cannot capture
+            high-frequency appearance. Each component &mdash; normal supervision, occlusion-aware blending, and the
+            mesh-only photometric term &mdash; contributes to the final quality.
+          </p>
+          <div class="table-container">
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth has-text-centered">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>PSNR &uarr;</th>
+                  <th>SSIM &uarr;</th>
+                  <th>LPIPS &darr;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>w/o 3DGS</td><td>33.60</td><td>0.943</td><td>0.057</td></tr>
+                <tr><td>w/o L<sub>normal</sub></td><td>34.45</td><td>0.948</td><td>0.047</td></tr>
+                <tr><td>w/o occlusion-aware blending</td><td>33.63</td><td>0.949</td><td>0.045</td></tr>
+                <tr><td>w/o mesh-only photometric term</td><td>34.90</td><td>0.955</td><td>0.031</td></tr>
+                <tr><td><b>Ours (full)</b></td><td><b>35.31</b></td><td><b>0.958</b></td><td><b>0.022</b></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Ablation. -->
+
+  </div>
+</section>
+
+
+<!-- BibTeX section will be added once the citation is finalized.
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{lee2026urhead,
+  author    = {Lee, Seonghak and Cho, Junhee and Park, Jisoo and Park, Min-Gyu
+               and Lee, Jongmin and Yoon, Ju Hong and Kwon, Junseok},
+  title     = {URHead: A Unified UV-Space Representation for Joint Mesh--3DGS
+               Optimization in Head Avatars},
+  journal   = {ECCV},
+  year      = {2026},
+}</code></pre>
+  </div>
+</section>
+-->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://github.com/Lseonghak/URHead" class="external-link">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            The website template is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
